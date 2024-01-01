@@ -1,30 +1,31 @@
 *{
     padding: 0px;
-    margin: 0px;
     box-sizing: border-box;
+    margin: 0px;
     /* border: 2px solid red; */
+    
+}
 
-}
-body{
-    position: relative;
-}
 
 .header{
     width: 100%;
-    /* height: 50px; */
+    height: auto;
     background-color: rgb(192, 192, 192);
     box-sizing: border-box;
+    padding-bottom: 10px;
+    position: relative;
 }
 
 .header-section{
     width: 100%;
-    height: 100%;
+    height: auto;
     margin: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    position: relative;
+    padding-top: 10px;
+    /* position: relative; */
     
 }
 
@@ -32,11 +33,11 @@ body{
     height: 30px;
     height: 30px;
     margin: 0px 10px;
-    flex: 1;
+    order: 1;
 }
 .nav-menu>img{
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
 }
 
 .logo{
@@ -47,12 +48,14 @@ body{
     font-family: 'unica one', 'sans-serif';
     flex: 18;
     color: white;
+    order: 2;
 }
 
 .account{
     height: 30px;
     width: 30px;
     margin: 5px;
+    order: 5;
 }
 .account>img{
     height: 30px;
@@ -65,7 +68,8 @@ body{
     width: 30px;
     flex: 1;
     margin: 5px;
-
+    order: 6;
+    
 }
 .cart>img{
     height: 30px;
@@ -79,11 +83,12 @@ body{
     align-items: center;
     width: 100%;
     margin: auto;
+    
 }
 .searchbar{
     height: 30px;
-    width: 70%;
-    margin: 5px 10px 5px 5px;
+    width: 85%;
+    padding-left: 15px;
     border: 2px solid grey;
     border-radius: 15px;
     
@@ -98,8 +103,9 @@ body{
     justify-content: center;
     align-items: center;
     width: 280px;
-    height: 100%;
+    height: auto;
     margin: auto;
+    order: 4;
 }
 
 .search-pc>img{
@@ -109,26 +115,57 @@ body{
 
 
 .nav-bar-pc{
-    /* display: flex; */
     align-items: center;
     display: none; 
-   
+    order: 3;
+    
     
 }
 
-.nav-item-pc{
-    font-size: 1em;
-    font-family: 'unica one', sans-serif;
-    padding: 0px 5px;
-    font-weight: bolder;
-    
+.nav-bar-pc{
+    width: 100vw;
+    height: auto;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    justify-content: flex-end;
+    background-color: rgba(0, 0, 0, 0.9);
+    top: 0px;
+    left: 0px;
+    padding: 30px 10px;
+    color: white;
+}
 
+.nav-item-pc{
+    /* width: 100%; */
+    font-size: 1.7em;
+    font-family: 'unica one', sans-serif;
+    padding: 10px 5px;
+    font-weight: bolder;
+    border-bottom: 2px solid grey;
+    
+    
+    
+    
+    
 }
 .nav-item-pc>a{
     text-decoration:none;
     color: rgb(255, 255, 255);
 }
 
+.close{
+    height: 35px;
+    width: 55px;
+    display: flex;
+    justify-content: center;
+    border-radius: 6px;
+    align-items: center;
+    background-color: rgb(67, 61, 61);
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
 .nav-bar{
     /* height: 1200px; */
     width: 100%;
@@ -144,7 +181,7 @@ body{
 }
 .nav-menu:visited{
     display: flex;
-     background-color: red; 
+    background-color: red; 
 }
 .nav-menu{
     display :flex;
@@ -157,7 +194,7 @@ body{
 .nav-item{
     margin: 10px 20px;
     border-bottom: 1px solid rgba(99, 99, 99, 0.808);
-
+    
 }
 
 
@@ -166,18 +203,41 @@ body{
 
 
 /* media querry for the responsive site */
- /* @media screen and (min-device-width: 481px) and (max-device-width: 768px){
 
-} */
+@media screen and (min-device-width: 481px) and (max-device-width: 768px){
+    .screen-size-error{
+        display: none;
+    }
+    .search{
+        display: none;
+    }
+    .search-pc{
+        display: flex;
+        width: 250px;
+    }
+    .header-section{
+       height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    
+}
 
 @media(min-device-width: 769px) {
-   
+    
+    .screen-size-error{
+        display: none;
+    }
     .header{
         width: 100%;
+        /* height: 60px; */
         margin: auto;
     }
     .header-section{
         width: 80%;
+        padding: 0px;
     }
     .nav-menu{
         display: none;
@@ -190,11 +250,34 @@ body{
         display: flex;
     }
     
+    
+    .header{
+        padding: 0px;
+    }
+    
     .nav-bar-pc{
         display: flex;
+        flex-direction: row;
+        position: relative;
+        background-color:transparent;
+        top: 0px;
+        left: 0px;
+        padding: 0px;
+        color: white;
+    }
+    .close{
+        display: none;
+    }
+    .nav-item-pc{
+        /* width: 100%; */
+        font-size: 1em;
+        font-family: 'unica one', sans-serif;
+        /* padding: 30px 5px; */
+        font-weight: bolder;
+        border-bottom: none;  
+        display: flex;
+        justify-content: flex-end;     
         
     }
-
-    
     
 }
